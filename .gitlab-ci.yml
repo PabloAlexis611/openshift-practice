@@ -1,0 +1,12 @@
+stages:
+  - build pipeline images
+
+build pipeline images:
+  only:
+    changes:
+      - Dockerfile
+  script:
+    - docker login -u pabloalexis611 -p rmF8h-hPcyfEgjgeypSy  registry.gitlab.com
+    - docker build -t registry.gitlab.com/pabloalexis611/openshift-practice .
+    - docker push registry.gitlab.com/pabloalexis611/openshift-practice
+
